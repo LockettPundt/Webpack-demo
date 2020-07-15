@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import moment from 'moment';
 import './style.css';
 
