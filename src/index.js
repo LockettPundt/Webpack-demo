@@ -1,5 +1,6 @@
+/* eslint-disable no-use-before-define */
 import moment from 'moment';
-import './style.css';
+import printMe from './printMe';
 
 const button = document.getElementById('justAButton');
 
@@ -8,6 +9,7 @@ button.addEventListener('click', () => {
   const timeDiv = document.querySelector('.timeDiv');
   button.classList.add('button');
   timeDiv.innerHTML = timeToAdd;
+  printMe();
 });
 
 function createTime() {
