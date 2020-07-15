@@ -6,7 +6,7 @@ module.exports = {
   // sets mode to dev.
   mode: 'development',
   entry: {
-    app: './src/index.js',
+    index: './src/index.js',
     printMe: './src/printMe.js',
   },
   // amazing. shows errors in which file and line.
@@ -29,5 +29,10 @@ module.exports = {
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
   },
 };
