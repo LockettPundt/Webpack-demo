@@ -1,3 +1,9 @@
+import moment from 'moment';
+
 export default function printMe() {
-  console.log('Hi there, How are you?');
+  const time = new Date();
+  console.log(
+    `Hi there, How are you?
+  The current time is ${moment(time).format('LL')}`,
+  );
 }
