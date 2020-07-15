@@ -21,18 +21,28 @@ module.exports = {
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
     // creates a new html file in dist. Currently using src/index.html as template.
     new HtmlWebpackPlugin({
-      title: 'Output Management',
+      title: 'Caching',
       template: 'src/index.html',
     }),
   ],
   // outputs the bundles as seperate files based on the entry name.
   output: {
+    // can do [contenthash] to view has number so. [name].[contenthash].js
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
   },
   optimization: {
+    moduleIds: 'hashed',
+    runtimeChunk: 'single',
     splitChunks: {
       chunks: 'all',
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all',
+        },
+      },
     },
   },
 };
